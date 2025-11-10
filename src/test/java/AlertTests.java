@@ -31,7 +31,6 @@ public class AlertTests {
 
         String result = driver.findElement(By.id("demo1")).getText();
         Assert.assertTrue(result.contains(name), "Result text does not contain expected name!");
-
     }
 
     @AfterClass
