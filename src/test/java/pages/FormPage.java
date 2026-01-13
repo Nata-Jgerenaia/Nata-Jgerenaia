@@ -8,7 +8,6 @@ import java.time.Duration;
 
 public class FormPage {
 
-
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -50,7 +49,9 @@ public class FormPage {
     }
 
     public void selectFemaleGender() {
-        driver.findElement(femaleGender).click();
+        WebElement female = driver.findElement(femaleGender);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", female);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", female);
     }
 
     public void enterPhone(String value) {
@@ -75,8 +76,13 @@ public class FormPage {
     }
 
     public void selectHobbies() {
-        driver.findElement(hobbiesReading).click();
-        driver.findElement(hobbiesMusic).click();
+        WebElement reading = driver.findElement(hobbiesReading);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reading);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", reading);
+
+        WebElement music = driver.findElement(hobbiesMusic);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", music);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", music);
     }
 
     public void enterAddress(String value) {
@@ -96,8 +102,9 @@ public class FormPage {
     }
 
     public void submitForm() {
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].click();", driver.findElement(submit));
+        WebElement submitBtn = driver.findElement(submit);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submitBtn);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitBtn);
     }
 
     public boolean isModalDisplayed() {

@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Homework3 Suite" parallel="classes" thread-count="2">
+    <test name="Tests">
+        <classes>
+            <class name="tests.FormTests"/>
+            <class name="tests.AlertTests"/>
+        </classes>
+    </test>
+</suite>
